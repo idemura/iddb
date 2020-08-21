@@ -2,11 +2,11 @@
 
 To build:
 ```
-./bzl build ...
-./bzl build :iddb
+gradle build
+gradle test
 ```
 
 To build and run:
 ```
-./bzl run :iddb -- <arguments>
+gradle run --args="--key=value"
 ```
