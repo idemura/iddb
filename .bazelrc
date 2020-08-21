@@ -1,5 +1,0 @@
-build --javabase=:jdk
-build --host_javabase=:jdk
-
-build --java_toolchain=@bazel_tools//tools/jdk:toolchain_vanilla
-build --host_java_toolchain=@bazel_tools//tools/jdk:toolchain_vanilla
