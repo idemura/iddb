@@ -1,13 +1,13 @@
 package id.db;
 
-import org.junit.jupiter.api.Test;
-
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-final class AppTest {
-  static int[] toArray(List<Integer> list) {
+final class AppTest
+{
+  static int[] toArray(List<Integer> list)
+  {
     var a = new int[list.size()];
     for (int i = 0; i < a.length; i++) {
       a[i] = list.get(i);
@@ -16,8 +16,9 @@ final class AppTest {
   }
 
   @Test
-  void testNumber() {
+  void testNumber()
+  {
     var app = new App();
-    assertArrayEquals(new int[] {42}, toArray(app.getNumbers()));
+    assertArrayEquals(new int[]{42}, toArray(app.getNumbers()));
   }
 }

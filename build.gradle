@@ -3,17 +3,33 @@
 plugins {
     id 'java'
     id 'application'
+    id 'me.champeau.gradle.jmh' version '0.5.0'
 }
 
 repositories {
     jcenter()
 }
 
+def verGuava = '29.0'
+def verJCommander = '1.78'
+def verLog = '1.7.30'
+def verJUnit = '5.6.2'
+def verJmh = '1.25'
+
 dependencies {
-    implementation 'com.google.guava:guava:29.0-jre'
-    implementation 'com.beust:jcommander:1.78'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+    implementation "com.google.guava:guava:${verGuava}-jre"
+    implementation "com.beust:jcommander:${verJCommander}"
+    implementation "org.slf4j:slf4j-api:${verLog}"
+    jmh "org.openjdk.jmh:jmh-core:${verJmh}"
+    jmh "org.openjdk.jmh:jmh-generator-annprocess:${verJmh}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${verJUnit}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${verJUnit}"
+}
+
+jmh {
+    jmhVersion = verJmh
+    jvmArgsAppend = []
+    resultFormat = 'CSV'
 }
 
 application {
